@@ -1,4 +1,4 @@
 # jimmy phan personal website
 my personal website, hosted on vercel using a next.js template.
 
-view it [https://www.jmyphn.com](here)
+view it [here](https://www.jmyphn.com)
