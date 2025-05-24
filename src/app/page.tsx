@@ -57,7 +57,7 @@ const HomePage = () => {
       </p>
 
       <p className="text-md">
-        i&apos;m interning at amazon in new york city this summer on the business organization.
+        i&apos;m interning at amazon in new york city this summer as an sde intern. i was previously at citadel in new york city as a software engineer extern.
       </p>
       <p className="text-md">
         outside of academics, i enjoy weightlifting and rock climbing.
