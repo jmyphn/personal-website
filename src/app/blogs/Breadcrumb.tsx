@@ -9,7 +9,7 @@ export default function Breadcrumb() {
   return (
     <nav className="flex gap-2 text-sm font-mono">
       <Link href="/" className="text-blue-600 hover:underline">
-        &gt; home
+        home
       </Link>
 
       <span className="text-gray-400">/</span>
@@ -22,7 +22,7 @@ export default function Breadcrumb() {
 
           <span className="text-gray-400">/</span>
 
-          <span className="font-semibold capitalize">
+          <span className="font-semibold">
             {decodeURIComponent(segment).replace(/-/g, ' ')}
           </span>
         </>

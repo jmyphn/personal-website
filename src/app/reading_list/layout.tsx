@@ -17,8 +17,8 @@ export default function ReadingListLayout({
   return (
     <div className="min-h-screen px-6 py-10 mx-auto max-w-3xl">
       <header className="mb-10 text-sm font-mono">
-        <Link href="/" className="text-blue-600 hover:underline">
-          &gt; home
+        <span className="text-blue-600">&gt; </span><Link href="/" className="text-blue-600 hover:underline">
+          home
         </Link>
         <span className="mx-2 text-gray-400">/</span>
         <span>reading&nbsp;list</span>

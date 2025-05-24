@@ -13,7 +13,7 @@ const HomePage = () => {
   }, []);
 
   const blogs = [
-    { date: "2025-05-24", title: "hello, world", href: "./blogs/hello-world"},
+    { date: "2025-05-24", title: "hello world", href: "./blogs/hello-world"},
   ];
 
   const socials = [
@@ -71,7 +71,7 @@ const HomePage = () => {
           {blogs.map(({ date, title, href }) => (
             <li key={href} className="text-gray-800">
               <span className="font-mono text-sm text-gray-500 mr-4">{date}</span>
-              <Link href={href} className="text-blue-600 hover:underline">
+              <Link href={href} className="text-blue-600 hover:underline font-mono">
                 {title}
               </Link>
             </li>

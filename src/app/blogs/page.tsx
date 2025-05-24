@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 const posts = [
   {
     slug: 'hello-world',
-    title: 'hello, world',
+    title: 'hello world',
     date: '2025-05-24',
     description: 'very first blog post',
   },
@@ -42,7 +42,7 @@ export default function BlogIndexPage() {
 
       <p className="mt-10 font-mono">
         <Link href="/" className="text-blue-600 hover:underline">
-          &gt; cd home
+          back to home
         </Link>
       </p>
     </>
