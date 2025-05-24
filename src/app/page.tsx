@@ -1,101 +1,113 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import dynamic from "next/dynamic";
+
+const HomePage = () => {
+  const [showCursor, setShowCursor] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => setShowCursor((c) => !c), 500);
+    return () => clearInterval(interval);
+  }, []);
+
+  const blogs = [
+    { date: "2025-05-24", title: "hello, world", href: "./blogs/hello-world"},
+  ];
+
+  const socials = [
+    { name: "github", url: "https://github.com/jmyphn" },
+    { name: "linkedin", url: "https://linkedin.com/in/jmyphn" },
+    {
+      name: "email",
+      emailB64: "anAyNjlAY29ybmVsbC5lZHU=" // Base64 encoded
+    },
+    { name: "instagram", url: "https://instagram.com/jmyphn" },
+    {name: "reading list", url: "/reading_list"},
+    {name: "spotify", url: "https://open.spotify.com/user/aer02048?si=44e962dc928c48d5"},
+  ];
+
+  const handleEmailClick = (emailB64: string) => {
+    try {
+      const email = atob(emailB64);
+      window.location.href = `mailto:${email}`;
+    } catch (error) {
+      console.error("Failed to decode email: ", error);
+    }
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="p-8 max-w-2xl mx-auto text-left space-y-6">
+      <h1 className="text-4xl font-bold font-mono mb-4">
+        <span className="text-blue-600">&gt;</span> cat &ldquo;jimmy_phan.txt&rdquo;
+        <span className="" aria-hidden>
+          {showCursor ? "_" : "\u00a0"}
+        </span>
+      </h1>
+      <p className="text-md ">
+        software engineer and computer science student interested in distributed and performance-sensitive systems.
+        i love talking about systems programming, distributed systems, operating systems, performance optimizations, and the plethora of random things in-between.
+      </p>
+      <p className="text-md">
+        i&apos;m currently finishing my b.s. and m.eng. degrees at cornell university, 
+        where i am a research assistant on <Link href="https://www.cs.cornell.edu/ken/Cascade-Project/" className="text-blue-600 hover:underline">cascade</Link> and <Link href="https://github.com/Derecho-Project/vortex" className="text-blue-600 hover:underline">vortex</Link>, advised by <Link href="https://www.cs.cornell.edu/ken/" className="text-blue-600 hover:underline">professor ken birman</Link>. 
+        i am also a teaching assistant for <Link href="https://www.cs.cornell.edu/courses/cs4414/2025fa/" className="text-blue-600 hover:underline">cs 4414: systems programming</Link>, cross-listed with <Link href="https://www.cs.cornell.edu/courses/cs5416/2025fa/" className="text-blue-600 hover:underline">cs 5416: cloud and ml-systems programming</Link>.
+        
+      </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <p className="text-md">
+        i&apos;m interning at amazon in new york city this summer in the business organization.
+      </p>
+      <p className="text-md">
+        outside of academics, i enjoy weightlifting and rock climbing.
+        i also follow the nba and formula 1 a bit too closely.
+        i&apos;m exploring new things too, like kitesurfing and photography.
+      </p>
+
+      <section>
+        <h2 className="text-2xl font-semibold font-mono mb-2"><span className="text-blue-600">&gt;</span> ls blog</h2>
+        <ul className="space-y-2">
+          {blogs.map(({ date, title, href }) => (
+            <li key={href} className="text-gray-800">
+              <span className="font-mono text-sm text-gray-500 mr-4">{date}</span>
+              <Link href={href} className="text-blue-600 hover:underline">
+                {title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="mb-2 text-2xl font-semibold font-mono">
+          <span className="text-blue-600">&gt;</span> ls connect</h2>
+        <div className="grid grid-cols-2 gap-2 font-mono">
+          {socials.map(({ name, url, emailB64 }) =>
+            emailB64 ? (
+              <button
+                key={name}
+                onClick={() => handleEmailClick(emailB64)}
+                className="text-blue-600 hover:underline text-left"
+              >
+                {name}
+              </button>
+            ) : (
+              <a
+                key={name}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:underline"
+              >
+                {name}
+              </a>
+            )
+          )}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+    </main>
   );
-}
+};
+
+export default dynamic(() => Promise.resolve(HomePage), { ssr: false });
