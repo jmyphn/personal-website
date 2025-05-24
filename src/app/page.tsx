@@ -96,7 +96,7 @@ const HomePage = () => {
               <a
                 key={name}
                 href={url}
-                target="_blank"
+                // target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:underline"
               >
