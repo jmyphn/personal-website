@@ -40,14 +40,14 @@ const HomePage = () => {
   return (
     <main className="p-8 max-w-2xl mx-auto text-left space-y-6">
       <h1 className="text-4xl font-bold font-mono mb-4">
-        <span className="text-blue-600">&gt;</span> cat &ldquo;jimmy_phan&rdquo;
+        <span className="text-blue-600">&gt;</span> jimmy phan
         <span className="" aria-hidden>
           {showCursor ? "_" : "\u00a0"}
         </span>
       </h1>
       <p className="text-md ">
         software engineer and computer science student interested in distributed and performance-sensitive systems.
-        i love talking about systems programming, distributed systems, operating systems, performance optimizations, and the plethora of random things in-between.
+        i love talking about systems programming, distributed systems, operating systems, performance optimizations, and the plethora of random things in between.
       </p>
       <p className="text-md">
         i&apos;m currently finishing my b.s. and m.eng. degrees at cornell university, 
@@ -57,7 +57,7 @@ const HomePage = () => {
       </p>
 
       <p className="text-md">
-        i&apos;m interning at amazon in new york city this summer in the business organization.
+        i&apos;m interning at amazon in new york city this summer on the business organization.
       </p>
       <p className="text-md">
         outside of academics, i enjoy weightlifting and rock climbing.
@@ -66,7 +66,7 @@ const HomePage = () => {
       </p>
 
       <section>
-        <h2 className="text-2xl font-semibold font-mono mb-2"><span className="text-blue-600">&gt;</span> ls blog</h2>
+        <h2 className="text-2xl font-semibold font-mono mb-2"><span className="text-blue-600">&gt;</span> ls -l blog</h2>
         <ul className="space-y-2">
           {blogs.map(({ date, title, href }) => (
             <li key={href} className="text-gray-800">
