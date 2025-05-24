@@ -40,7 +40,7 @@ const HomePage = () => {
   return (
     <main className="p-8 max-w-2xl mx-auto text-left space-y-6">
       <h1 className="text-4xl font-bold font-mono mb-4">
-        <span className="text-blue-600">&gt;</span> cat &ldquo;jimmy_phan.txt&rdquo;
+        <span className="text-blue-600">&gt;</span> cat &ldquo;jimmy_phan&rdquo;
         <span className="" aria-hidden>
           {showCursor ? "_" : "\u00a0"}
         </span>
