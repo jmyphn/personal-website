@@ -24,7 +24,7 @@ const HomePage = () => {
       emailB64: "anAyNjlAY29ybmVsbC5lZHU=" // Base64 encoded
     },
     { name: "instagram", url: "https://instagram.com/jmyphn" },
-    {name: "reading list", url: "/reading_list"},
+    {name: "media list", url: "/media_list"},
     {name: "spotify", url: "https://open.spotify.com/user/aer02048?si=44e962dc928c48d5"},
   ];
 
@@ -60,7 +60,7 @@ const HomePage = () => {
         i&apos;m interning at amazon in new york city this summer as an sde intern. i was previously at citadel in new york city as a software engineer extern.
       </p>
       <p className="text-md">
-        outside of academics, i enjoy weightlifting and rock climbing.
+        outside of academics, i enjoy weightlifting and bouldering (v4 - v6).
         i also follow the nba and formula 1 a bit too closely.
         i&apos;m exploring new things too, like kitesurfing and photography.
       </p>

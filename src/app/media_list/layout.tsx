@@ -3,13 +3,13 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s – reading list",
-    default: "reading list",
+    template: "%s – media list",
+    default: "media list",
   },
-  description: "things i am reading/have read/will read.",
+  description: "things i am consuming.",
 };
 
-export default function ReadingListLayout({
+export default function MediaListLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -17,11 +17,11 @@ export default function ReadingListLayout({
   return (
     <div className="min-h-screen px-6 py-10 mx-auto max-w-3xl">
       <header className="mb-10 text-sm font-mono">
-        <span className="text-blue-600">&gt; </span><Link href="/" className="text-blue-600 hover:underline">
+        <Link href="/" className="text-blue-600 hover:underline">
           home
         </Link>
         <span className="mx-2 text-gray-400">/</span>
-        <span>reading&nbsp;list</span>
+        <span>media list</span>
       </header>
 
       {children}
